@@ -1,0 +1,25 @@
+/* ================================
+   MAIN SCSS ENTRY FILE
+   ================================ */
+
+/* 1. Abstracts (no CSS output – only helpers) */
+@import "abstracts/variables";
+@import "abstracts/mixins";
+// @import "abstracts/functions";
+
+/* 2. Base styles (normalize/reset, typography, etc.) */
+@import "base/reset";
+// @import "base/typography";
+
+/* 3. Layout styles (grid, header, footer, etc.) */
+// @import "layout/grid";
+// @import "layout/header";
+// @import "layout/footer";
+
+/* 4. Components (buttons, cards, forms, etc.) */
+@import "components/button";
+// @import "components/card";
+
+/* 5. Pages (page-specific overrides) */
+// @import "pages/home";
+// @import "pages/about";
