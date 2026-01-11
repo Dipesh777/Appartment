@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
-import "./styles/main.scss";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Button from './components/Button';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import Dashboard from './pages/user/Dashboard';
+import ProtectedRoute from './components/ProtectedRoutes';
 
 const App: React.FC = () => {
   const [count, setCount] = useState<number>(0);
   return (
-    <div>
-      <h1>Welcome to Apartment Maintenance App</h1>
-      <p>you clicked {count} times</p>
-      <Button onClick={() => setCount(count + 1)} label="Click Me" disabled={false}/>
-      <Button label="Disable button" onClick={() => alert("This should not run")} disabled />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/registration' element={<Register />} />
 
-    </div>
+        {/* Protected Routes */}
+        <Route
+          path='/dashboard'
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
