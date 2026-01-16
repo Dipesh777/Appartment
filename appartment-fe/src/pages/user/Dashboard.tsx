@@ -1,7 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
-  return <div>Dashboard Page</div>;
+  const nevigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    nevigate('/')
+
+  }
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <button onClick={handleLogout}>logout</button>
+    </div>
+  )
 };
 
 export default Dashboard;
